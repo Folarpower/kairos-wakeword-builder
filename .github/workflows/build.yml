@@ -1,7 +1,7 @@
 name: Build Kairos Wake Word
 
 on:
-  workflow_dispatch: # Позволяет запускать сборку вручную одной кнопкой с сайта
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,7 +13,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y espeak-ng ffmpeg sox libsndfile1 portaudio19-dev
 
       - name: Install dependencies
         run: |
