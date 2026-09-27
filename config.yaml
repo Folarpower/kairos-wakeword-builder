@@ -1,0 +1,9 @@
+model_name: kairos
+target_phrases:
+  - "kai ros"
+n_samples: 5000
+model:
+  model_type: conv_attention
+  model_size: small
+steps: 10000
+target_fp_per_hour: 0.2
